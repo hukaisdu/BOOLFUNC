@@ -1,6 +1,6 @@
 # This class transform a sbox into polynomial
-from Term import *
-from Polynomial import *
+from .Term import *
+from .Polynomial import *
 
 class Sbox(object):
     def __init__(self, valueList, input_dim, output_dim):

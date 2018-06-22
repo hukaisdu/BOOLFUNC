@@ -1,4 +1,4 @@
-from Term import *   
+from .Term import *   
 
 class Polynomial(object):
     ZERO_TERM = ConstTerm(0)

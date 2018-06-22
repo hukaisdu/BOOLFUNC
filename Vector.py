@@ -28,7 +28,11 @@ class Vector(object):
     def __eq__(self, other):
         return self.dimension == other.dimension and self.value == other.value
 
-
+    def toList(self):
+        vectorList = list()
+        for i in range(self.dimension):
+            vectorList.append( self.value >> (self.dimension - 1 - i) & 1 )
+        return vectorList
 
     def __str__(self):
         return str(self.value)
@@ -36,5 +40,18 @@ class Vector(object):
     def getCoveringVectors(self):
         self.__genCoveringVectors()
         return self.coveringVectors
+
+    def __add__(self, other):
+        return Vector(self.dimension + other.dimension, ( self.value << other.dimension ) | other.value )
+
+def main():
+    a = Vector(4, 2)
+    b = Vector(4, 3)
+    print( str(a + b ) ) 
+    print ( ( a + b ).toList() )
+
+if __name__ == '__main__':
+    main()
+  
 
 
